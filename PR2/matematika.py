@@ -1,5 +1,4 @@
 import math
-from tkinter import Y
 
 x = float(input("Введите x "))
 y = float(input("Введите y "))
