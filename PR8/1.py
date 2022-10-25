@@ -42,12 +42,16 @@ for i in range(n):
 	print()
 for i in range(n):
 	for j in range(m):
-		max_b = max(B[i])
 		min_b = min(B[i])
-	print('Мах элемент в строке', i+1,': ', max_b)
-	print('Min элемент в строке', i+1,': ', min_b)
+		a = B[i].index(min(B[i]))
+	tmp1 = B[i][0]
+	B[i][0] = B[i][a]
+	B[i][a] = tmp1
 for i in range(n):
 	for j in range(m):
-		min_b = min(B[i])
-		B[i][0], min_b = min_b, B[i][0]
-	print(B)
+		max_b = max(B[i])
+		b = B[i].index(max(B[i]))
+	tmp2 = B[i][m-1]
+	B[i][m-1] = B[i][b]
+	B[i][b] = tmp2
+print(B)
