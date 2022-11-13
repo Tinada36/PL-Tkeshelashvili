@@ -14,20 +14,28 @@ def otkrit():
         txt.place(x=0,y=0)
 
 def kalk():
-    if combo.get() == '+':
-        lbl_gl.configure(text="4")
-    elif combo.get() == '-':
-        lbl_gl.configure(text="0")
-    elif combo.get() == '*':
-        lbl_gl.configure(text="4")
-    elif combo.get() == '/':
-        lbl_gl.configure(text="1")
+    if combo.get()=="+":
+        label1.configure(text=int(spin.get())+int(spin1.get()))
+    elif combo.get()=="-":
+        label1.configure(text=int(spin.get())-int(spin1.get()))
+    elif combo.get()=="*":
+        label1.configure(text=int(spin.get())*int(spin1.get()))
+    elif combo.get()=="/" and spin1.get()=="0":
+        label1.configure(text="00")
+    else:
+        label1.configure(text=int(spin.get())/int(spin1.get()))
 
 def knopka():
     if chk1.instate(['selected']) == True:
         messagebox.showinfo('Text', 'Вы выбрали первый вариант')
+        if chk2.instate(['selected']) == True:
+            messagebox.showinfo('Text', 'Вы выбрали второй вариант')
+            if chk3.instate(['selected']) == True:
+                messagebox.showinfo('Text', 'Вы выбрали третий вариант')
     elif chk2.instate(['selected']) == True:
         messagebox.showinfo('Text', 'Вы выбрали второй вариант')
+        if chk3.instate(['selected']) == True:
+            messagebox.showinfo('Text', 'Вы выбрали третий вариант')
     elif chk3.instate(['selected']) == True:
         messagebox.showinfo('Text', 'Вы выбрали третий вариант')
     else:
@@ -36,6 +44,7 @@ def knopka():
 window = Tk()
 window.title("Tkeshelashvili VR")
 window.geometry('600x300')
+window.wm_resizable(0, 0)
 
 tab_control = ttk.Notebook(window)
 tab1 = ttk.Frame(tab_control)
@@ -54,12 +63,26 @@ lbl2.grid(column=2, row=0)
 lbl_gl = Label(tab1)
 lbl_gl.grid(column=4, row=0)
 
-txt = scrolledtext.ScrolledText(tab3, height=14, width=70)
+txt = scrolledtext.ScrolledText(tab3, height=14, width=70, bg='#AFEEEE')
 txt.grid(column=0, row=0) 
 
-combo = Combobox(tab1)
+combo = Combobox(tab1, justify="center", width=5)
 combo['values'] = ('+', '-', '*', '/')
+combo.current(0)
 combo.grid(column=1, row=0)
+
+var =IntVar()
+var.set(0)
+spin=Spinbox(tab1,from_=-100000,to=100000,width=10,justify="center",textvariable=var)
+spin.grid(column=0,row=0)
+var1 =IntVar()
+var1.set(0)
+spin1=Spinbox(tab1,from_=-100000,to=100000,width=10,justify="center",textvariable=var1)
+spin1.grid(column=2,row=0)
+btn1= Button(tab1,text="=",command=kalk)
+btn1.grid(column=3,row=0)
+label1 = ttk.Label(tab1,text="0")
+label1.grid(column=4,row=0)
 
 chk_state = BooleanVar()
 chk_state1 = BooleanVar()
@@ -73,8 +96,6 @@ chk3.grid(column=0, row=2)
 
 btn = Button(tab2, text="нажми!", command=knopka)
 btn.grid(column=1, row=1)
-btn1 = Button(tab1, text="Посчитать", command=kalk)
-btn1.grid(column=3, row=0)
 
 menu = Menu(window)
 new_item = Menu(menu, tearoff=0)
