@@ -1,4 +1,4 @@
-with open('PR9\TVR_ub22_vvod.txt', 'r+') as f:
+with open('PR9\TkeshelashviliVR_ub22_vvod.txt', 'r+') as f:
 	line = f.readlines()
 	l = [element.replace ("\n", "").split() for element in line]
 import math
@@ -19,7 +19,7 @@ for i in range(n):
 				k += 1
 """print('Сумма элементов над главной диагональю: ', s)
 print('Кол-во положительных элементов', k)"""
-with open('PR9\TVR_ub22_vivod.txt', 'w', encoding='utf-8-sig') as f2:
+with open('PR9\TkeshelashviliVR_ub22_vivod.txt', 'w', encoding='utf-8-sig') as f2:
 	for i in range(n):
 		for j in range(n):
 			f2.write(str(a[i][j]))
@@ -44,7 +44,7 @@ for i in range(n):
 		tmp2 = a[i][m-1]
 		a[i][m-1] = a[i][c]
 		a[i][c] = tmp2
-with open('PR9\TVR_ub22_vivod.txt', 'a+', encoding='utf-8-sig') as f2:
+with open('PR9\TkeshelashviliVR_ub22_vivod.txt', 'a+', encoding='utf-8-sig') as f2:
 	f2.write('Найти в каждой строке матрицы максимальный и минимальный элементы и поменять их с первым и последним элементами строки соответственно.')
 	f2.write('\n')
 	for i in range(n):
@@ -56,7 +56,7 @@ for i in range(m):
 	if i % 2 != 0:
 		mmin = min(a[i])
 		"""print('min элемент чётных строк', mmin)"""
-with open('PR9\TVR_ub22_vivod.txt', 'a+', encoding='utf-8-sig') as f2:
+with open('PR9\TkeshelashviliVR_ub22_vivod.txt', 'a+', encoding='utf-8-sig') as f2:
 	f2.write('min элемент чётных строк')
 	f2.write('\n')
 	f2.write(str(mmin))
@@ -76,7 +76,7 @@ for i in range(m):
 			a[i][k] = minn
 		elif a[i][k] == minn:
 			a[i][k] = maxx
-with open('PR9\TVR_ub22_vivod.txt', 'a+', encoding='utf-8-sig') as f2:
+with open('PR9\TkeshelashviliVR_ub22_vivod.txt', 'a+', encoding='utf-8-sig') as f2:
 	f2.write('min=')
 	f2.write(str(minn))
 	f2.write('\n')
