@@ -3,14 +3,8 @@ import json
 from tkinter import *
 from tkinter import scrolledtext
 
-owner = "openshift"
-repo = "osin"
-
-url = f"https://api.github.com/repos/{owner}/{repo}"
-repository_url = requests.get(url).json()
-
 def zapros():
-    owner = "openshift"
+    owner = txt.get()
     repo = txt.get()
 
     url = f"https://api.github.com/repos/{owner}/{repo}"
