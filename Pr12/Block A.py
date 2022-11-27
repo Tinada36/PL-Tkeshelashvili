@@ -1,3 +1,5 @@
+# номер 1
+
 def func(x, n):
     if n == 1:
         return x
